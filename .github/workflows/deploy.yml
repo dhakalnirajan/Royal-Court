@@ -1,20 +1,16 @@
-name: Build and Deploy to `deployment` branch
+name: Build and deploy to `deployment` branch
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   workflow_dispatch: {}
-
-permissions:
-  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -28,42 +24,12 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npm run build --if-present
 
-      - name: Deploy `dist` to `deployment` branch
-        env:
-          REPO: ${{ github.repository }}
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SHA: ${{ github.sha }}
-        run: |
-          set -e
-          git --version
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          # Prepare a clean clone to push only built files to the deployment branch
-          rm -rf out || true
-          CLONE_URL="https://x-access-token:${TOKEN}@github.com/${REPO}.git"
-
-          # Clone repo locally (shallow) then switch to or create the deployment branch
-          git clone --depth 1 ${CLONE_URL} out || git clone ${CLONE_URL} out
-          cd out
-          if git show-ref --verify --quiet refs/heads/deployment; then
-            git checkout deployment
-            git rm -rf . || true
-          else
-            git checkout --orphan deployment
-            git rm -rf . || true
-          fi
-          cd ..
-
-          # Copy built files into the checkout and commit
-          cp -a dist/. out/
-          cd out
-          git add --all
-          if git diff --cached --quiet; then
-            echo "No changes to deploy"
-          else
-            git commit -m "Deploy: ${SHA}"
-            git push origin deployment --force
-          fi
+      - name: Deploy to `deployment` branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: deployment
+          keep_history: true
