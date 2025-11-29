@@ -1,11 +1,11 @@
 export type RoleType = 'Raja' | 'Rani' | 'Mantri' | 'Senapati' | 'Police' | 'Courtesan' | 'Praja' | 'Chor';
 
-export type Language = 'HINDI' | 'ENGLISH';
+export type Language = 'NEPALI' | 'ENGLISH';
 
 export interface RoleDef {
   id: RoleType;
   names: {
-    HINDI: string;
+    NEPALI: string;
     ENGLISH: string;
   };
   points: number;

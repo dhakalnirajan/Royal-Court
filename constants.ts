@@ -3,7 +3,7 @@ import { RoleDef, RoleType, Settings } from './types';
 export const ROLES: Record<RoleType, RoleDef> = {
   Raja: { 
     id: 'Raja',
-    names: { HINDI: 'Raja', ENGLISH: 'King' },
+    names: { NEPALI: 'Raja', ENGLISH: 'King' },
     points: 2000, 
     priority: 8, 
     description: 'The Ruler. Reveals first. Always scores 2000.',
@@ -13,7 +13,7 @@ export const ROLES: Record<RoleType, RoleDef> = {
   },
   Rani: { 
     id: 'Rani',
-    names: { HINDI: 'Rani', ENGLISH: 'Queen' },
+    names: { NEPALI: 'Rani', ENGLISH: 'Queen' },
     points: 1800, 
     priority: 7, 
     description: 'The High Royal. Supports the Raja.',
@@ -23,7 +23,7 @@ export const ROLES: Record<RoleType, RoleDef> = {
   },
   Mantri: { 
     id: 'Mantri',
-    names: { HINDI: 'Mantri', ENGLISH: 'Minister' },
+    names: { NEPALI: 'Mantri', ENGLISH: 'Minister' },
     points: 1500, 
     priority: 6, 
     description: 'The Advisor. Guides the court.',
@@ -33,7 +33,7 @@ export const ROLES: Record<RoleType, RoleDef> = {
   },
   Senapati: { 
     id: 'Senapati',
-    names: { HINDI: 'Senapati', ENGLISH: 'General' },
+    names: { NEPALI: 'Senapati', ENGLISH: 'General' },
     points: 1200, 
     priority: 5, 
     description: 'The Commander. Protects the realm.',
@@ -43,7 +43,7 @@ export const ROLES: Record<RoleType, RoleDef> = {
   },
   Police: { 
     id: 'Police',
-    names: { HINDI: 'Prahari', ENGLISH: 'Police' },
+    names: { NEPALI: 'Prahari', ENGLISH: 'Police' },
     points: 800, 
     priority: 4, 
     description: 'The Investigator. Must find the Chor to score.',
@@ -53,7 +53,7 @@ export const ROLES: Record<RoleType, RoleDef> = {
   },
   Courtesan: { 
     id: 'Courtesan',
-    names: { HINDI: 'Nartak', ENGLISH: 'Courtesan' },
+    names: { NEPALI: 'Nartak', ENGLISH: 'Courtesan' },
     points: 400, 
     priority: 3, 
     description: 'The Entertainer. Neutral observer.',
@@ -63,7 +63,7 @@ export const ROLES: Record<RoleType, RoleDef> = {
   },
   Praja: { 
     id: 'Praja',
-    names: { HINDI: 'Praja', ENGLISH: 'Citizen' },
+    names: { NEPALI: 'Praja', ENGLISH: 'Citizen' },
     points: 200, 
     priority: 2, 
     description: 'The Citizen. Common folk.',
@@ -73,7 +73,7 @@ export const ROLES: Record<RoleType, RoleDef> = {
   },
   Chor: { 
     id: 'Chor',
-    names: { HINDI: 'Chor', ENGLISH: 'Thief' },
+    names: { NEPALI: 'Chor', ENGLISH: 'Thief' },
     points: 0, 
     priority: 1, 
     description: 'The Criminal. Steals 800 points if Police fails.',
@@ -84,7 +84,7 @@ export const ROLES: Record<RoleType, RoleDef> = {
 };
 
 export const DEFAULT_SETTINGS: Settings = {
-  language: 'HINDI',
+  language: 'NEPALI',
   masterVolume: 0.5,
   sfxVolume: 1.0,
   musicVolume: 0.5

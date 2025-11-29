@@ -44,7 +44,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ settings, onUpdate, onClose
               <Globe size={16} /> LANGUAGE
             </label>
             <div className="flex bg-slate-800 p-1 rounded-lg">
-              {(['HINDI', 'ENGLISH'] as Language[]).map((lang) => (
+              {(['NEPALI', 'ENGLISH'] as Language[]).map((lang) => (
                 <button
                   key={lang}
                   onClick={() => onUpdate({ ...settings, language: lang })}
@@ -54,7 +54,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({ settings, onUpdate, onClose
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  {lang === 'HINDI' ? 'Hindi (Raja)' : 'English (King)'}
+                  {lang === 'NEPALI' ? 'Nepali (Raja)' : 'English (King)'}
                 </button>
               ))}
             </div>
